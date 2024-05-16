@@ -8,7 +8,7 @@ WITH last_year_scd AS (
     FROM
         akp389.actors_history_scd
     WHERE
-        current_year = 2001
+        current_year = 2000
 ),
 
 -- The second CTE "this_year_scd" calculates the quality class and sets the activity status for actors in the year 2002.
@@ -29,7 +29,7 @@ this_year_scd AS (
     FROM
         bootcamp.actor_films
     WHERE
-        YEAR = 2002
+        YEAR = 2001
     GROUP BY
         actor,
         actor_id,

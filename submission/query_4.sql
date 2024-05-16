@@ -14,9 +14,9 @@ WITH previous_year_activity AS (
         LAG(quality_class,1) OVER (PARTITION BY actor, actor_id ORDER BY current_year) AS pr_quality_class,
         current_year 
     FROM 
-        akp389.actors_2
+        akp389.actors
     WHERE 
-        current_year <= 2001
+        current_year <= 2000
 ),
 
 -- The second CTE "streaked" calculates streaks of activity for each actor based on changes in activity status.
@@ -46,7 +46,7 @@ SELECT
     is_active,
     MIN(s.current_year) AS start_date,
     MAX(s.current_year) AS end_date,
-    2001 AS current_year
+    2000 AS current_year
 FROM 
     streaked s
 GROUP BY 
